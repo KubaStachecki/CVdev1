@@ -3,11 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder name -->
     <string name="hello_blank_fragment">O JEZU PUSTY FRAGMENT</string>
-    <string name="termy">
+    <string name="termy" translatable="false">
 Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922).
 </string>
+
+
+
     <string name="kontakt">Kontakt</string>
     <string name="skille">Skille</string>
     <string name="experience">Experience</string>
     <string name="notes">Notes</string>
+
+
+
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CVdev1</string>
+    <string name="experience">doswiadczenie</string>
+    <string name="hello_blank_fragment">o kurwa fragment</string>
+    <string name="kontakt">kontakt</string>
+    <string name="notes">notatnik</string>
+    <string name="skille">umiejetnosci</string>
+
+
+</resources>
