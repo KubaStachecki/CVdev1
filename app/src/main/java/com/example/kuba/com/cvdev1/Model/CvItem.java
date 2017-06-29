@@ -2,30 +2,27 @@ package com.example.kuba.com.cvdev1.Model;
 
 import android.content.Context;
 
-/**
- * Created by RENT on 2017-06-26.
- */
 
-public abstract class  CvItem {
+public abstract class CvItem {
 
 
-    private final int imageId;
-    private final String text;
+    final int imageId;
+    final String name;
 
-    public CvItem(int imageId, String text) {
+    public CvItem(int imageId, String name) {
         this.imageId = imageId;
-        this.text = text;
+        this.name = name;
     }
 
     public int getImageId() {
         return imageId;
     }
-    public String getText() {
-        return text;
+
+    public String getName() {
+        return name;
     }
 
     public abstract void makeAction(Context context);
-
 
 
 }

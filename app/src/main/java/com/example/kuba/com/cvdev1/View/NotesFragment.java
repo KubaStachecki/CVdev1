@@ -47,7 +47,6 @@ public class NotesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_notes, container, false);
-
         notes = (TextView) view.findViewById(R.id.notes);
 
 

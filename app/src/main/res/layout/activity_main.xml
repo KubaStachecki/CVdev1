@@ -9,9 +9,8 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start"
     android:animateLayoutChanges="false"
+    android:fitsSystemWindows="true"
 
     >
 
@@ -25,12 +24,12 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="@color/colorPrimary"
             android:theme="@style/drawerArrowStyle"
             app:popupTheme="@style/drawerArrowStyle"
+            app:titleTextColor="@android:color/white"
 
             >
 
@@ -53,18 +52,36 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/container"
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/snackbar_attach"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_insert_emoticon_black_24dp"
+                android:tint="@android:color/white"
+                app:fabSize="normal" />
 
 
-        </FrameLayout>
+        </android.support.design.widget.CoordinatorLayout>
 
 
     </LinearLayout>
+
+
 
 
     <android.support.design.widget.NavigationView
@@ -72,9 +89,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
         app:itemIconTint="@color/colorAccent"
         app:menu="@menu/navigation_menu"
-        app:headerLayout="@layout/navigation_header"
 
 
         >

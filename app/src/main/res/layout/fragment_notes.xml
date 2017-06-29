@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="16dp"
-            android:text="To miejsce na twoje notatki:" />
+            android:name="To miejsce na twoje notatki:" />
 
         <EditText
             android:id="@+id/notes"

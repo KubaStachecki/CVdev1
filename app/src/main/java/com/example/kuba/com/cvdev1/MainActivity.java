@@ -1,8 +1,13 @@
 package com.example.kuba.com.cvdev1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -11,41 +16,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.kuba.com.cvdev1.View.CvRow;
 import com.example.kuba.com.cvdev1.View.NotesFragment;
 import com.example.kuba.com.cvdev1.View.SkillFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    @BindView(R.id.telefon)
-//    Layout telefon;
-//
-//    @BindView(R.id.mail)
-//    Layout mail;
-
-//    @BindView(R.id.container)
-//    LinearLayout container;
 
     private FrameLayout lin;
     CvRow phoneTab;
     private DrawerLayout drawerLayout;
+    private CoordinatorLayout snackbarLayout;
     private NavigationView navMenu;
     private Fragment contactsFragment;
     private Fragment skillFragment;
     private Fragment notesFragment;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//     ButterKnife.bind(this);
 
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        snackbarLayout = (CoordinatorLayout) findViewById(R.id.snackbar_attach);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this) ;
+
 
         setupToolbar(toolbar);
 
@@ -99,8 +105,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-    //------------------------------------------koniec maina----------------------//
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.options_info:
+//                Toast.makeText(this, "kliknales", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                        .setTitle("Termy i kondycje")
+                        .setIcon(R.drawable.ic_error_outline_black_24dp)
+                        .setMessage(getString(R.string.termy))
+                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+                break;
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void changeMenuItem(Fragment fragment) {
 
@@ -123,4 +165,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fab:
+//                Toast.makeText(this, "o jezu fab ", Toast.LENGTH_SHORT).show();
+                Snackbar.make(snackbarLayout, "o jezu snackbar", Snackbar.LENGTH_SHORT).show();
+
+
+        }
+    }
 }

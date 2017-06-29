@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.kuba.com.cvdev1.Model.CvItem;
+import com.example.kuba.com.cvdev1.Model.DialogItem;
 import com.example.kuba.com.cvdev1.Model.MailItem;
 import com.example.kuba.com.cvdev1.Model.NoActionItem;
 import com.example.kuba.com.cvdev1.Model.NotesItem;
@@ -49,12 +50,14 @@ public class ContactFragment extends Fragment {
        CvRow webadress = new CvRow(getActivity(), new NoActionItem());
        CvRow noaction = new CvRow(getActivity(), new WebItem());
        CvRow notes = new CvRow(getActivity(), new NotesItem());
+       CvRow dialog = new CvRow(getActivity(), new DialogItem(R.drawable.kartka, "Napisalem cos", "bo umiem pisac i dlatego mi sie udalo"));
 
         contactLayout.addView(mail);
         contactLayout.addView(phone);
         contactLayout.addView(webadress);
         contactLayout.addView(noaction);
         contactLayout.addView(notes);
+        contactLayout.addView(dialog);
 
 
 //        phone.setOnClickListener(this);

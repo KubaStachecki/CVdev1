@@ -30,7 +30,7 @@ public class CvRow extends LinearLayout implements View.OnClickListener {
 
 
         this.cvItem = cvItem;
-        this.text = cvItem.getText();
+        this.text = cvItem.getName();
         this.imageId = cvItem.getImageId();
         this.context = context;
         resources = context.getResources();

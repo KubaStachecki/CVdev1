@@ -24,7 +24,7 @@
 
         <TextView
 
-            android:text="Menu od CV....."
+            android:name="Menu od CV....."
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom"

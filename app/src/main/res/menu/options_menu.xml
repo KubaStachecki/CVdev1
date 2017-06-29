@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/options_info"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        android:title="info"
+        app:showAsAction="always" />
+</menu>
