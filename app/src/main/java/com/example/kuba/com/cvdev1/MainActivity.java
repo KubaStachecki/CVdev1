@@ -2,6 +2,8 @@ package com.example.kuba.com.cvdev1;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -22,6 +24,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.kuba.com.cvdev1.Model.PasswordFragment;
 import com.example.kuba.com.cvdev1.View.CvRow;
 import com.example.kuba.com.cvdev1.View.NotesFragment;
 import com.example.kuba.com.cvdev1.View.SkillFragment;
@@ -39,37 +42,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment notesFragment;
     private FloatingActionButton fab;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         snackbarLayout = (CoordinatorLayout) findViewById(R.id.snackbar_attach);
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this) ;
-
-
-        setupToolbar(toolbar);
-
-        lin = (FrameLayout) findViewById(R.id.container);
-        navMenu = (NavigationView) findViewById(R.id.navMenu);
 
         contactsFragment = ContactFragment.newInstance();
         skillFragment = SkillFragment.newInstance();
         notesFragment = NotesFragment.newInstance();
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
+
+        lin = (FrameLayout) findViewById(R.id.container);
+        navMenu = (NavigationView) findViewById(R.id.navMenu);
+
+        setupToolbar(toolbar);
+
+        PasswordFragment.newInstance().show(getSupportFragmentManager(), "");
 
         navMenu.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 item.setChecked(true);
                 toolbar.setTitle(item.getTitle());
-
                 switch (item.getItemId()) {
 
                     case R.id.menu_experience:
@@ -84,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.notes:
                         changeMenuItem(notesFragment);
                         break;
-
-
                 }
 
 
@@ -167,10 +166,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fab:
 //                Toast.makeText(this, "o jezu fab ", Toast.LENGTH_SHORT).show();
-                Snackbar.make(snackbarLayout, "o jezu snackbar", Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(snackbarLayout, "o jezu snackbar", Snackbar.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setType(ContactsContract.Contacts.CONTENT_TYPE)
+                        .putExtra(ContactsContract.Intents.Insert.NAME, "Imie i nazwisko")
+                        .putExtra(ContactsContract.Intents.Insert.PHONE, "666 666 888")
+                        .putExtra(ContactsContract.Intents.Insert.EMAIL, "pfff@sdsdf.pl");
+
+                startActivity(intent);
 
 
         }

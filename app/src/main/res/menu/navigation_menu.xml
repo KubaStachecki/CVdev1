@@ -4,23 +4,23 @@
     <group
         android:checkableBehavior="single"
         >
-        <item android:title="Kontakt"
+        <item android:title="@string/kontakt"
 
 
             android:icon="@drawable/kartka"
             android:id="@+id/menu_kontakt"/>
-        <item android:title="Skille"
+        <item android:title="@string/skille"
 
             android:icon="@drawable/mail"
             android:id="@+id/menu_skills"/>
-        <item android:title="Experience"
+        <item android:title="@string/experience"
             android:icon="@drawable/ekran"
             android:id="@+id/menu_experience" />
         <item android:title="Item"
             android:icon="@drawable/kartka"
             android:id="@+id/item3"/>
 
-        <item android:title="Notes"
+        <item android:title="@string/notes"
             android:icon="@drawable/kartka"
             android:id="@+id/notes"/>
     </group>
