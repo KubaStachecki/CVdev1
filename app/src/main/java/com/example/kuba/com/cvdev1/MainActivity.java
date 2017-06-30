@@ -25,11 +25,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.kuba.com.cvdev1.Model.PasswordFragment;
+import com.example.kuba.com.cvdev1.Model.SnackbarShower;
 import com.example.kuba.com.cvdev1.View.CvRow;
 import com.example.kuba.com.cvdev1.View.NotesFragment;
 import com.example.kuba.com.cvdev1.View.SkillFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SnackbarShower {
 
 
     private FrameLayout lin;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setupToolbar(toolbar);
 
-        PasswordFragment.newInstance().show(getSupportFragmentManager(), "");
+//        PasswordFragment.newInstance().show(getSupportFragmentManager(), "");
 
         navMenu.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 item.setChecked(true);
                 toolbar.setTitle(item.getTitle());
                 switch (item.getItemId()) {
-
                     case R.id.menu_experience:
                         break;
                     case R.id.menu_kontakt:
@@ -81,18 +81,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.menu_skills:
                         changeMenuItem(skillFragment);
                         break;
-
                     case R.id.notes:
                         changeMenuItem(notesFragment);
                         break;
                 }
-
-
                 return false;
             }
         });
-
-
     }
 
     @Override
@@ -103,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -111,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onCreateOptionsMenu(menu);
 
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -142,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
-
     private void changeMenuItem(Fragment fragment) {
 
         drawerLayout.closeDrawer(Gravity.LEFT);
@@ -155,15 +147,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .commit();
 
     }
-
     private void setupToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle hamburger = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(hamburger);
         hamburger.syncState();
     }
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -181,5 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
+    }
+    public void showSnackbar(String text) {
+        Snackbar.make(snackbarLayout, text, Snackbar.LENGTH_SHORT).show();
     }
 }

@@ -23,6 +23,10 @@
         <item android:title="@string/notes"
             android:icon="@drawable/kartka"
             android:id="@+id/notes"/>
+
+
+
+
     </group>
 
 
