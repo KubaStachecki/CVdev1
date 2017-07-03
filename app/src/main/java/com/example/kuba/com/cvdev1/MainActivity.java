@@ -30,6 +30,11 @@ import com.example.kuba.com.cvdev1.View.CvRow;
 import com.example.kuba.com.cvdev1.View.NotesFragment;
 import com.example.kuba.com.cvdev1.View.SkillFragment;
 
+
+//koniec zajec //
+//z uzyciem tej apki ;( //
+
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SnackbarShower {
 
 
